@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>View Drugs</title>
+</head>
+
+<body>
+
+<h1>All Drugs</h1>
+
+<form action="/search" method="POST">
+
+<input type="text" name="keyword" placeholder="Search Drug">
+
+<button type="submit">Search</button>
+
+</form>
+
+<br>
+
+<table border="1">
+
+<tr>
+<th>ID</th>
+<th>Drug</th>
+<th>Polymer</th>
+<th>Solubility</th>
+<th>Action</th>
+</tr>
+
+{% for drug in drugs %}
+
+<tr>
+
+<td>{{ drug[0] }}</td>
+<td>{{ drug[1] }}</td>
+<td>{{ drug[2] }}</td>
+<td>{{ drug[3] }}</td>
+
+<td>
+
+<a href="/delete/{{ drug[0] }}">Delete</a>
+
+<a href="/update/{{ drug[0] }}">Update</a>
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+</body>
+</html>
